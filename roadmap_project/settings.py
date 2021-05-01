@@ -42,7 +42,8 @@ BUILT_IN_APPS = [
 ]
 
 USER_DEFINED_APPS = [
-    'accounts.apps.AccountsConfig'
+    'accounts.apps.AccountsConfig',
+    'roadmap.apps.RoadmapConfig',
 ]
 
 THIRD_PARTY_APPS = []
