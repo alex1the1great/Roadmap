@@ -1,0 +1,14 @@
+
+# Pycharm
+.idea
+
+# virtual environment
+venv
+
+db.sqlite3
+
+.env
+
+# cpython cache directory
+*__pycache__*
+*.pyc
