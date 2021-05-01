@@ -1,3 +1,13 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Goal
+
+
+class GoalAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug', 'deadline']
+    list_filter = ['deadline']
+    search_fields = ['name']
+    prepopulated_fields = {'slug': ('name',)}
+
+
+admin.site.register(Goal, GoalAdmin)
