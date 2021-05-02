@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.db import models
 from django.conf import settings
+from django.utils.text import slugify
 from django.core.exceptions import ValidationError
 
 User = settings.AUTH_USER_MODEL
@@ -26,4 +27,8 @@ class Goal(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        return super(Goal, self).save(*args, **kwargs)
 
