@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 
-from .models import Goal
+from .models import Goal, Task
 from .forms import GoalForm, TaskForm
 
 
@@ -56,3 +56,10 @@ def task_add(request, slug):
             task.save()
             return redirect(reverse('goal_detail', args=[goal.slug]))
     return render(request, 'roadmap/task_add.html', {'form': form, 'goal': goal})
+
+
+def task_delete(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    goal_slug = task.goal.slug
+    task.delete()
+    return redirect(reverse('goal_detail', args=[goal_slug]))

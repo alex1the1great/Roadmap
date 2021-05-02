@@ -10,7 +10,7 @@
     <a href="{% url 'goal_delete' goal.slug %}">Delete</a>
     {% for task in goal.tasks.all %}
         <ul>
-            <li><p>{{ task }}</p></li>
+            <li><p>{{ task }} - <a href="{% url 'task_delete' task.id %}">Complete</a></p></li>
         </ul>
     {% empty %}
         <p>No tasks available yet.</p>

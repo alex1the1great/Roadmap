@@ -9,5 +9,6 @@ urlpatterns = [
     path('<slug:slug>/edit/', views.goal_edit, name='goal_edit'),
     path('<slug:slug>/delete/', views.goal_delete, name='goal_delete'),
 
-    path('<slug:slug>/task/add/', views.task_add, name='task_add')
+    path('<slug:slug>/task/add/', views.task_add, name='task_add'),
+    path('task/<int:task_id>/', views.task_delete, name='task_delete')
 ]
