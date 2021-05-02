@@ -32,3 +32,11 @@ class Goal(models.Model):
         self.slug = slugify(self.name)
         return super(Goal, self).save(*args, **kwargs)
 
+
+class Task(models.Model):
+    name = models.CharField(max_length=200)
+
+    goal = models.ForeignKey(Goal, on_delete=models.CASCADE, related_name='tasks')
+
+    def __str__(self):
+        return self.name
