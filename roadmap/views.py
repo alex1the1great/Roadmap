@@ -31,3 +31,9 @@ def goal_edit(request, slug):
             form.save()
             return redirect('goal_list')
     return render(request, 'roadmap/goal_edit.html', {'form': form, 'goal': goal})
+
+
+def goal_delete(request, slug):
+    goal = get_object_or_404(Goal, slug=slug)
+    goal.delete()
+    return redirect('goal_list')

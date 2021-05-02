@@ -10,7 +10,7 @@
         <h3><a href="">{{ goal.name }}</a></h3>
         <p>{{ goal.deadline|date:"F j, Y" }}</p>
         <a href="{% url 'goal_edit' goal.slug %}">Edit</a> |
-        <a href="">Delete</a>
+        <a href="{% url 'goal_delete' goal.slug %}">Delete</a>
         {% if not forloop.last %}<hr>{% endif %}
     {% endfor %}
 {% endblock content %}
