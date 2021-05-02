@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'roadmap/base.html' %}
+
+{% block title %}Add Goal{% endblock title %}
+
+{% block content %}
+    <h1>Add new goal</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p><input type="submit" value="Submit"></p>
+    </form>
+
+{% endblock content %}

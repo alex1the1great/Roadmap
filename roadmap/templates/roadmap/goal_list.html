@@ -4,7 +4,7 @@
 
 {% block content %}
     <h1>Goals</h1>
-    <a href="">Add new goal</a>
+    <a href="{% url 'goal_add' %}">Add new goal</a>
 
     {% for goal in goals %}
         <h3><a href="">{{ goal.name }}</a></h3>
