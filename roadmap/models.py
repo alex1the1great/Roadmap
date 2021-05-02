@@ -1,13 +1,14 @@
+from datetime import datetime
+
 from django.db import models
 from django.conf import settings
-from django.utils import timezone
 from django.core.exceptions import ValidationError
 
 User = settings.AUTH_USER_MODEL
 
 
 def validate_deadline_not_in_past(value):
-    current = timezone.now()
+    current = datetime.now().date()
     if value <= current:
         raise ValidationError('Deadline should be in future date.')
 
