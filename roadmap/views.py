@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 
 from .models import Goal
-from .forms import GoalForm
+from .forms import GoalForm, TaskForm
 
 
 def goal_list(request):
@@ -42,3 +42,17 @@ def goal_delete(request, slug):
     goal = get_object_or_404(Goal, slug=slug)
     goal.delete()
     return redirect('goal_list')
+
+
+def task_add(request, slug):
+    goal = get_object_or_404(Goal, slug=slug)
+    form = TaskForm
+
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.goal = goal
+            task.save()
+            return redirect(reverse('goal_detail', args=[goal.slug]))
+    return render(request, 'roadmap/task_add.html', {'form': form, 'goal': goal})

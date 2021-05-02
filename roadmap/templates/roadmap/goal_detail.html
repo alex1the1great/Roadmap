@@ -5,6 +5,7 @@
 {% block content %}
     <h1>{{ goal.name }}</h1>
     <p>Deadline: {{ goal.deadline|date:"F j, Y" }}</p>
+    <p><a href="{% url 'task_add' goal.slug %}">Add new task</a></p>
     <a href="{% url 'goal_edit' goal.slug %}">Edit</a> |
     <a href="{% url 'goal_delete' goal.slug %}">Delete</a>
     {% for task in goal.tasks.all %}

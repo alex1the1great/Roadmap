@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Goal
+from .models import Goal, Task
 
 
 class CustomDateInput(forms.DateInput):
@@ -15,3 +15,8 @@ class GoalForm(forms.ModelForm):
             'deadline': CustomDateInput()
         }
 
+
+class TaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['name']
