@@ -9,6 +9,11 @@ def goal_list(request):
     return render(request, 'roadmap/goal_list.html', {'goals': goals})
 
 
+def goal_detail(request, slug):
+    goal = get_object_or_404(Goal, slug=slug)
+    return render(request, 'roadmap/goal_detail.html', {'goal': goal})
+
+
 def goal_add(request):
     form = GoalForm()
     if request.method == 'POST':

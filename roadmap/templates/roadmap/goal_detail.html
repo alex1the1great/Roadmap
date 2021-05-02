@@ -1,0 +1,10 @@
+{% extends 'roadmap/base.html' %}
+
+{% block title %}{{ goal.name }}{% endblock title %}
+
+{% block content %}
+    <h1>{{ goal.name }}</h1>
+    <p>{{ goal.deadline|date:"F j, Y" }}</p>
+    <a href="{% url 'goal_edit' goal.slug %}">Edit</a> |
+    <a href="{% url 'goal_delete' goal.slug %}">Delete</a>
+{% endblock content %}
