@@ -63,3 +63,10 @@ def task_delete(request, task_id):
     goal_slug = task.goal.slug
     task.delete()
     return redirect(reverse('goal_detail', args=[goal_slug]))
+
+
+def index(request):
+    if request.user.is_authenticated:
+        return redirect('goal_list')
+    else:
+        return render(request, 'index.html')
