@@ -2,12 +2,14 @@
 
 {% block title %}Add Goal{% endblock title %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-    <h1>Add new goal</h1>
+    <h3 class="mt-3">Add new goal</h3>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <p><input type="submit" value="Submit"></p>
+        {{ form|crispy }}
+        <p><input type="submit" value="Submit" class="btn btn-primary"></p>
     </form>
 
 {% endblock content %}
