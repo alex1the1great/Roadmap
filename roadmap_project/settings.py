@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -143,6 +143,12 @@ LOGOUT_REDIRECT_URL = 'index'
 
 # crispy form template
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# CSRF setting
+CSRF_COOKIE_SECURE = True
+
+# Session cookie
+SESSION_COOKIE_SECURE = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
