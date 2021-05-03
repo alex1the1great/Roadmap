@@ -14,6 +14,8 @@ class SignupView(CreateView):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect('goal_list')
+        else:
+            return super().get(self, request, *args, **kwargs)
 
 
 class CustomLoginView(LoginView):
