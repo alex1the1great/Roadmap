@@ -7,7 +7,7 @@ from .forms import GoalForm, TaskForm
 
 @login_required
 def goal_list(request):
-    goals = Goal.objects.all()
+    goals = Goal.objects.filter(creator=request.user)
     return render(request, 'roadmap/goal_list.html', {'goals': goals})
 
 
