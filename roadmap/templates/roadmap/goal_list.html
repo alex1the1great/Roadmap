@@ -3,14 +3,17 @@
 {% block title %}Goal List{% endblock title %}
 
 {% block content %}
-    <h1>Goals</h1>
-    <a href="{% url 'goal_add' %}">Add new goal</a>
 
     {% for goal in goals %}
-        <h3><a href="{% url 'goal_detail' goal.slug %}">{{ goal.name }}</a></h3>
-        <p>{{ goal.deadline|date:"F j, Y" }}</p>
-        <a href="{% url 'goal_edit' goal.slug %}">Edit</a> |
-        <a href="{% url 'goal_delete' goal.slug %}">Delete</a>
-        {% if not forloop.last %}<hr>{% endif %}
+        <div class="card mt-4">
+            <h5 class="card-header"><a href="{% url 'goal_detail' goal.slug %}">{{ goal.name }}</a></h5>
+            <div class="card-body">
+                <p class="card-text">Deadline: {{ goal.deadline|date:"F j, Y" }}</p>
+                <a href="{% url 'goal_edit' goal.slug %}" class="btn btn-primary btn-sm btn-warning">Edit</a>
+                <a href="{% url 'goal_delete' goal.slug %}" class="btn btn-primary btn-sm btn-danger">Delete</a>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center">No goals yet. Create <a href="{% url 'goal_add' %}">one.</a></p>
     {% endfor %}
 {% endblock content %}
