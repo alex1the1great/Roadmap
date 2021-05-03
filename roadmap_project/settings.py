@@ -46,7 +46,9 @@ USER_DEFINED_APPS = [
     'roadmap.apps.RoadmapConfig',
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    'crispy_forms'
+]
 
 INSTALLED_APPS = BUILT_IN_APPS + USER_DEFINED_APPS + THIRD_PARTY_APPS
 
@@ -138,6 +140,9 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'goal_list'
 LOGOUT_REDIRECT_URL = 'index'
+
+# crispy form template
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
