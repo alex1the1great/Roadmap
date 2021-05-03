@@ -2,12 +2,15 @@
 
 {% block title %}Login{% endblock title %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
     <h1>Login</h1>
-    <p>Welcome back to Roadmap</p>
+    <p>Welcome back to <strong>Roadmap</strong></p>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <p><input type="submit" value="Login"></p>
+        {{ form|crispy }}
+        <p><input type="submit" value="Login" class="btn btn-primary"></p>
     </form>
+    <p>Dont' have an account. Register <a href="{% url 'signup' %}">here.</a></p>
 {% endblock content %}
