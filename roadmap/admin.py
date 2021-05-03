@@ -9,7 +9,7 @@ class TaskInlined(admin.StackedInline):
 
 
 class GoalAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'deadline']
+    list_display = ['name', 'slug', 'creator', 'deadline']
     list_filter = ['deadline']
     search_fields = ['name']
     prepopulated_fields = {'slug': ('name',)}
