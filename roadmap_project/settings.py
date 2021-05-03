@@ -134,6 +134,11 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 STATIC_URL = '/static/'
 
+# Login and Logout url pattern
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'goal_list'
+LOGOUT_REDIRECT_URL = 'index'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
