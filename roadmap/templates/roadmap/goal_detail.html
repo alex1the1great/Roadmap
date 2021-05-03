@@ -14,7 +14,7 @@
 
             {% for task in goal.tasks.all %}
                 <ul>
-                    <li><p>{{ task }} - <a href="{% url 'task_delete' task.id %}" class="text-danger">Complete</a></p></li>
+                    <li><p>{{ task }} <a href="{% url 'task_delete' task.id %}" class="text-danger ml-2 ">| Complete |</a></p></li>
                 </ul>
             {% empty %}
                 <p class="mt-3">No tasks available yet. Create <a href="{% url 'task_add' goal.slug %}">one</a>.</p>
