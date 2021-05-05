@@ -13,7 +13,7 @@ def goal_list(request):
 
 @login_required
 def goal_detail(request, slug):
-    goal = get_object_or_404(Goal, slug=slug)
+    goal = get_object_or_404(Goal, slug=slug, creator=request.user)
     return render(request, 'roadmap/goal_detail.html', {'goal': goal})
 
 
@@ -32,7 +32,7 @@ def goal_add(request):
 
 @login_required
 def goal_edit(request, slug):
-    goal = get_object_or_404(Goal, slug=slug)
+    goal = get_object_or_404(Goal, slug=slug, creator=request.user)
     form = GoalForm(instance=goal)
 
     if request.method == 'POST':
@@ -45,7 +45,7 @@ def goal_edit(request, slug):
 
 @login_required
 def goal_delete(request, slug):
-    goal = get_object_or_404(Goal, slug=slug)
+    goal = get_object_or_404(Goal, slug=slug, creator=request.user)
     goal.delete()
     return redirect('goal_list')
 
