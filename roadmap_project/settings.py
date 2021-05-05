@@ -135,8 +135,6 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'static/'
 
 # Login and Logout url pattern
 LOGIN_URL = 'login'
