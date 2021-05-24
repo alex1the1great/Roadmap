@@ -27,25 +27,22 @@ SECRET_KEY = env.str('DJANGO_SECRET_KEY')
 
 # Application definition
 
-BUILT_IN_APPS = [
+INSTALLED_APPS = [
+    # Local
+    'accounts.apps.AccountsConfig',
+    'roadmap.apps.RoadmapConfig',
+
+    # Built-in
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
 
-USER_DEFINED_APPS = [
-    'accounts.apps.AccountsConfig',
-    'roadmap.apps.RoadmapConfig',
+    # Third party
+    'crispy_forms',
 ]
-
-THIRD_PARTY_APPS = [
-    'crispy_forms'
-]
-
-INSTALLED_APPS = BUILT_IN_APPS + USER_DEFINED_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
